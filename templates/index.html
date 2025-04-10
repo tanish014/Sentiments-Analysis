@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="nav-link" data-page="home">HOME</a>
+        <a href="#" class="nav-link" data-page="analysis">ANALYSIS</a>
+        <a href="#" class="nav-link" data-page="about">ABOUT</a>
+        <a href="#" class="nav-link" data-page="login">LOGIN/SIGNUP</a>
+    </nav>
+    
+    <!-- Pendulum ropes with emojis outside the container -->
+    <div class="rope-container left">
+        <div class="rope">
+            <div class="emoji happy">😄</div>
+        </div>
+    </div>
+    
+    <div class="rope-container right">
+        <div class="rope">
+            <div class="emoji sad">😟</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="welcome-text">
+                <h1>WELCOME TO SENTIMENT ANALYSIS</h1>
+                <h2>ON SOCIAL MEDIA PRESENCE</h2>
+            </div>
+            <div class="get-started">
+                <button onclick="navigateTo('login')">GET STARTED</button>
+            </div>
+        </div>
+        
+        <!-- Analysis Page -->
+        <div id="analysis" class="page">
+            <h1>Twitter Sentiment Analysis</h1>
+            
+            <div class="analysis-form">
+                <div class="input-group">
+                    <label for="text-input">Enter the text</label>
+                    <textarea id="text-input" placeholder="Enter your text here..."></textarea>
+                </div>
+                <button id="analyze-btn" class="analyze-btn">Analyze</button>
+            </div>
+            
+            <div id="results-container" class="results-container" style="display: none;">
+                <div id="positive-result" class="result-box positive" style="display: none;">
+                    <h2>Positive Sentiment</h2>
+                    <p id="positive-text"></p>
+                </div>
+                <div id="negative-result" class="result-box negative" style="display: none;">
+                    <h2>Negative Sentiment</h2>
+                    <p id="negative-text"></p>
+                </div>
+                <div id="neutral-result" class="result-box neutral" style="display: none;">
+                    <h2>Neutral Sentiment</h2>
+                    <p id="neutral-text"></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- About Page -->
+        <div id="about" class="page">
+            <div class="about-content">
+                <h2>About Sentiment Analysis on Social Media</h2>
+                <p>Sentiment analysis is the process of determining whether a piece of text contains positive, negative, or neutral emotions. In the context of social media, sentiment analysis helps understand public opinion, customer feedback, and brand perception.</p>
+                
+                <h2>How It Works</h2>
+                <p>Our application uses Natural Language Processing (NLP) techniques and machine learning algorithms to analyze the emotional tone behind texts. The Random Forest model has been trained on a large dataset from social media platforms to accurately identify sentiment patterns.</p>
+                
+                <h2>Benefits</h2>
+                <p>Understanding sentiment can help businesses improve customer experience, manage brand reputation, identify market trends, and make data-driven decisions. For individuals, it can help gauge how their messages might be perceived by others.</p>
+                
+                <h2>Try It Yourself</h2>
+                <p>Go to the Analysis page to test our sentiment analyzer with your own text. Simply type or paste your content and get instant feedback on the emotional tone it conveys.</p>
+            </div>
+        </div>
+        
+        <!-- Login/Signup Page -->
+        <div id="login" class="page">
+            <div class="auth-form">
+                <h2>Login / Signup</h2>
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login / Signup</button>
+                <button class="guest-btn" onclick="navigateTo('analysis')">Continue as Guest</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

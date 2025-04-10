@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #111;
+    color: white;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #222;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 100;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #1DA1F2;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    min-height: 400px;
+    z-index: 10;
+}
+
+.welcome-text {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+.welcome-text h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    transform: perspective(500px) rotateX(10deg);
+    background: linear-gradient(45deg, #fff, #ddd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.welcome-text h2 {
+    font-size: 22px;
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+.get-started {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.get-started button {
+    padding: 12px 24px;
+    background-color: #1DA1F2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.get-started button:hover {
+    background-color: #0c85d0;
+}
+
+/* Rope and Emoji styling with pendulum animation */
+.rope-container {
+    position: absolute;
+    top: 60px;
+    left: 20%;
+    z-index: 5;
+    transform-origin: top center;
+    animation: pendulumLeft 3s infinite ease-in-out alternate;
+}
+
+.rope-container.right {
+    left: auto;
+    right: 20%;
+    animation: pendulumRight 3.3s infinite ease-in-out alternate;
+}
+
+.rope {
+    position: relative;
+    width: 4px;
+    height: 250px;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.emoji {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 60px;
+    z-index: 2;
+}
+
+@keyframes pendulumLeft {
+    0% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes pendulumRight {
+    0% {
+        transform: rotate(20deg);
+    }
+    100% {
+        transform: rotate(-20deg);
+    }
+}
+
+/* Login/Signup Form */
+.auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1DA1F2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.auth-form .guest-btn {
+    background-color: #28a745;
+}
+
+/* Analysis Form */
+.analysis-form {
+    max-width: 100%;
+    margin: 30px 0;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none;
+}
+
+.analyze-btn {
+    padding: 12px 30px;
+    background-color: #E0245E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.analyze-btn:hover {
+    background-color: #c01e51;
+}
+
+/* Results section */
+.results-container {
+    margin-top: 30px;
+}
+
+.result-box {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.result-box h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.result-box p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.positive {
+    background-color: #28a745;
+    color: white;
+}
+
+.negative {
+    background-color: #dc3545;
+    color: white;
+}
+
+.neutral {
+    background-color: #6c757d;
+    color: white;
+}
+
+.about-content {
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.about-content h2 {
+    margin-bottom: 15px;
+    color: #1DA1F2;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+}
+
+/* Hide all pages by default */
+.page {
+    display: none;
+}
+
+/* Show active page */
+.page.active {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+    color: #fff;
+}
+
+/* Only show rope containers when home page is active */
+body:has(#home.active) .rope-container {
+    display: block;
+}
+
+body:not(:has(#home.active)) .rope-container {
+    display: none;
+}
+
+/* Fallback for browsers that don't support :has */
+@media (hover: none) {
+    .rope-container {
+        display: block;
+    }
+}
