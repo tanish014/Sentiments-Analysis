@@ -37,13 +37,11 @@ if user_input:
     else:
         vectorized = vectorizer.transform([preprocessed]).toarray()
         prediction = model.predict(vectorized)[0]
+        probs = model.predict_proba(vectorized)[0]
 
-        # Display result
         if prediction == 'positive':
-            st.success("✅ Sentiment: Positive")
+            st.success(f"✅ Sentiment: Positive (Confidence: {probs[1]:.2f})")
         elif prediction == 'negative':
-            st.error("❌ Sentiment: Negative")
+            st.error(f"❌ Sentiment: Negative (Confidence: {probs[0]:.2f})")
         else:
             st.info("ℹ️ Sentiment: Neutral")
-            dataset['Sentiment'].value_counts(normalize=True)
-
