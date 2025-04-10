@@ -45,3 +45,5 @@ if user_input:
             st.error("❌ Sentiment: Negative")
         else:
             st.info("ℹ️ Sentiment: Neutral")
+            dataset['Sentiment'].value_counts(normalize=True)
+
