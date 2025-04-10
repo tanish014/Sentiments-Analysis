@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analysis</title>
+</head>
+<body>
+  <h2>Enter text for sentiment analysis</h2>
+  <form id="sentiment-form">
+    <textarea id="text" name="text" required></textarea><br><br>
+    <button type="submit">Analyze</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    const form = document.getElementById('sentiment-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = document.getElementById('text').value;
+      const response = await fetch('/analyze', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ text: text })
+      });
+      const data = await response.json();
+      document.getElementById('result').innerText = "Sentiment: " + data.sentiment;
+    });
+  </script>
+</body>
+</html>
